@@ -1,0 +1,23 @@
+{
+  "name": "BuyBlue",
+  "authors": [
+    "karanjariwala <karanjariwala@gmail.com>"
+  ],
+  "description": "Rento Mojo assignment",
+  "main": "app/index.html",
+  "keywords": [
+    "shoping",
+    "blue",
+    "clothes"
+  ],
+  "license": "MIT",
+  "homepage": "app/index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

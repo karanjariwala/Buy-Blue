@@ -1,0 +1,22 @@
+h2
+{
+	text-shadow: 3px 2px black;
+	color:red;
+}
+#pCarousel{
+	color:yellow;
+}
+#marginPadding
+{
+	margin: 0;
+	padding: 0;
+	line-height: 0px;
+
+}
+.row, .row > div[class*='col-'] {  
+margin: 0;
+padding: 0;
+
+
+}
+

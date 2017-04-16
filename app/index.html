@@ -1,0 +1,169 @@
+<!doctype html>
+<html ng-app="buyBlueApp">
+<!-- build:css styles/main.css -->
+<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="styles/myStyles.css">
+<!-- endbuild -->
+
+<head>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Buy Blue</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kids <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accessories <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="fa fa-shopping-bag"></span></a></li>
+                        <li><a href="#"><span class="fa fa-user"></span></a></li>
+                        <li><a href="#"><span class="fa fa-search"></span></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="" ng-controller="BlueController">
+            <div class="row">
+                <div class="col-xs-9 col-xs-offset-0">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item" ng-repeat="item in items track by $index" ng-class="{active: ($index == 0)}">
+                                <img ng-src={{item.image}} alt="..." style="z-index: -100">
+                                <div class="carousel-caption">
+                                    <h1>{{item.category}}</h1>
+                                    <h2>{{item.title}}</h2>
+                                    <p id="pCarousel"> {{item.description}}
+                                        <h4> Price: <span class="label label-danger">{{item.price|currency}}</span>
+                                        <button class="btn btn-success btn-xs">Buy</button></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-xs-offset-0">
+                    <!-- Indicators -->
+                    <ol class="" ng-repeat="item in items" id="marginPadding">
+                        <img style="max-height: 14.2rem;" ng-src={{item.image}} data-target="#carousel-example-generic" data-slide-to="{{$index}}" class="active img img-thumbnail ">
+                    </ol>
+                </div>
+            </div>
+            <div class="row" id="marginPadding">
+                <h1 align="center">Featured Products</h1>
+                <div class="col-sm-6 col-md-4" ng-repeat="promo in promotions" id="marginPadding">
+                    <div class="thumbnail">
+                        <img ng-src="{{promo.image}}" alt="...">
+                        <div class="caption">
+                            <h3 align="center">{{promo.name}}</h3>
+                            <h4 align="center">Price: <span class="label label-danger">{{promo.price|currency}}</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-md-2">
+                    <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#">
+                                   Buy Blue             
+                                                      </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-8">
+                    <nav class="navbar navbar-inverse ">
+                        <form class="navbar-form navbar-center" role="search" align="middle">
+                            <div class="form-group">
+                                <input align="center" type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <nav class="navbar navbar-inverse ">
+                        <a class="btn btn-lg" align="middle" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-lg" align="middle"href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-lg" align="middle" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- build:js scripts/main.js -->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/services.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
